@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2020"],
+    "outDir": "dist",
+    "module": "ESNext",
+    "strict": true,
+    "target": "ES2020"
+  }
+}
