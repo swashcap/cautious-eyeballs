@@ -4,7 +4,7 @@ import { Duplex } from "stream";
 import { fileURLToPath } from "url";
 import { promises as fs } from "fs";
 
-import { writeMessage } from "../dist/file.js";
+import { isDirectory, writeMessage } from "../dist/file.js";
 
 const TEST_DIRNAME = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -14,6 +14,11 @@ const TEST_DIRNAME = path.resolve(
 test.before(() => fs.mkdir(TEST_DIRNAME, { recursive: true }));
 
 test.after(() => fs.rmdir(TEST_DIRNAME, { recursive: true }));
+
+test("isDirectory", async (t) => {
+  t.is(await isDirectory(TEST_DIRNAME), true);
+  t.is(await isDirectory(path.join(TEST_DIRNAME, "dne")), false);
+});
 
 test("writeMessage :: success", async (t) => {
   const mockFilename = path.join(TEST_DIRNAME, "message.txt");
