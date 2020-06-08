@@ -20,8 +20,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -30,8 +28,16 @@ jobs:
     - run: npm run lint
     - run: npm run build
     - run: npm test
-    # https://github.com/marketplace/actions/commit-linter
-    - name: Commit lint
-      uses: wagoid/commitlint-github-action@v1
-      with:
-        configFile: commitlint.config.json
+  # https://github.com/marketplace/actions/commit-linter
+  commitlint:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Commit lint
+        uses: wagoid/commitlint-github-action@v1
+        with:
+          configFile: commitlint.config.json
