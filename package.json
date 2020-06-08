@@ -26,6 +26,7 @@
   "name": "cautious-eyeballs",
   "scripts": {
     "build": "tsc && babel -d dist 'dist/**/*.js' && chmod +x dist/cli.js",
+    "clean": "rm -rf dist",
     "lint": "eslint --ext .js,.ts 'src/**/*.ts' 'test/**/*.js'",
     "test": "NODE_ENV=test ava"
   },
