@@ -1,9 +1,10 @@
 import { join } from "path";
 import { promises as fs } from "fs";
 
-import { validateConfig } from "./config";
-import { getDate, getTime, getExt } from "./util";
 import { get } from "./network";
+import { getDate, getTime, getExt } from "./util";
+import { retry } from "./retry";
+import { validateConfig } from "./config";
 import { writeMessage } from "./file";
 
 /**
@@ -32,7 +33,7 @@ export const main = async ({
   await Promise.all(
     config.map(async ({ name, url }) => {
       const ext = getExt(url);
-      const incomingMessage = await get(url);
+      const incomingMessage = await retry(() => get(url));
 
       await writeMessage(
         join(outDir, name, prefix, `${getTime(date).join("")}.${ext}`),

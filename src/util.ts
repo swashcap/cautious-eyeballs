@@ -10,6 +10,7 @@ export const extToMime = new Map<string, string>([
   ["gif", "image/gif"],
   ["jpeg", "image/jpeg"],
   ["jpg", "image/jpeg"],
+  ["json", "application/json"],
   ["png", "image/png"],
 ]);
 
