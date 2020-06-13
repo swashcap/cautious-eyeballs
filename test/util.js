@@ -28,6 +28,7 @@ test("getExt", (t) => {
     ),
     "gif"
   );
+  t.is(util.getExt("https://whoa.is/it/image/time.JPEG"), "jpeg");
 });
 
 test("toCamelCase", (t) => {
