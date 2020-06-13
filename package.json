@@ -24,6 +24,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "name": "cautious-eyeballs",
+  "repository": "github:swashcap/cautious-eyeballs",
   "scripts": {
     "build": "tsc && babel -d dist 'dist/**/*.js' && chmod +x dist/cli.js",
     "clean": "rm -rf dist",
