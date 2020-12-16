@@ -15,7 +15,7 @@
     "babel-plugin-add-import-extension": "^1.4.3",
     "eslint": "^7.15.0",
     "eslint-plugin-prettier": "^3.3.0",
-    "husky": "^4.2.5",
+    "husky": "^4.3.6",
     "lint-staged": "^10.2.10",
     "prettier": "^2.0.5",
     "typescript": "^3.9.5"
