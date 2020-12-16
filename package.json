@@ -3,8 +3,8 @@
   "bin": "dist/cli.js",
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.2",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
     "@babel/helper-plugin-utils": "^7.10.1",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
